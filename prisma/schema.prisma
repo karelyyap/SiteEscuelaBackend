@@ -3,13 +3,13 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "postgresql"
 }
 
 model users {
   id       Int    @id @default(autoincrement())
   name     String @db.VarChar(100)
-  email    String @unique(map: "email") @db.VarChar(150)
+  email    String @unique @db.VarChar(150)
   password String @db.VarChar(255)
 }
 
@@ -17,17 +17,17 @@ model maestros {
   id             Int    @id @default(autoincrement())
   nombre         String @db.VarChar(100)
   apellido       String @db.VarChar(100)
-  numeroEmpleado String @unique(map: "numeroEmpleado") @db.VarChar(50)
+  numeroEmpleado String @unique @db.VarChar(50)
   departamento   String @db.VarChar(100)
-  correo         String @unique(map: "correo") @db.VarChar(150)
+  correo         String @unique @db.VarChar(150)
 }
 
 model alumnos {
   id           Int    @id @default(autoincrement())
   nombre       String @db.VarChar(100)
   apellido     String @db.VarChar(100)
-  matricula    String @unique(map: "matricula") @db.VarChar(50)
+  matricula    String @unique @db.VarChar(50)
   carrera      String @db.VarChar(100)
   cuatrimestre String @db.VarChar(50)
-  correo       String @unique(map: "correo") @db.VarChar(150)
+  correo       String @unique @db.VarChar(150)
 }
